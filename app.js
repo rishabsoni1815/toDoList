@@ -61,7 +61,10 @@ app.post("/delete", function (req, res) {
     res.redirect("/");
   });
 });
-
-app.listen(process.env.PORT || 3001, function () {
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3001;
+}
+app.listen(port, function () {
   console.log("Listening to port 3001");
 });
